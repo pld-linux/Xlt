@@ -1,5 +1,5 @@
-Summary:	The LessTif extension library
-Summary(pl):	Biblioteka rozszerzeñ do LessTifa
+Summary:	The LessTif/Motif extension library
+Summary(pl):	Biblioteka rozszerzeñ do LessTifa/Motifa
 Name:		Xlt
 Version:	9.2.9
 Release:	1
@@ -11,18 +11,19 @@ Patch0:		%{name}-am18.patch
 URL:		http://xlt.sf.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	lesstif-devel
+BuildRequires:	motif-devel >= 1.2
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The LessTif extension library. This consists of several widgets and
-convience functions to make LessTif, or if you must Motif, programming
-more enjoyable.
+The LessTif/Motif extension library. This consists of several widgets
+and convience functions to make LessTif, or if you must Motif,
+programming more enjoyable.
 
 %description -l pl
-Biblioteka rozszerzeñ do LessTifa. Zawiera trochê widgetów i funkcji
-¿eby nieco uprzyjemniæ programowanie z u¿yciem LessTifa czy Motifa.
+Biblioteka rozszerzeñ do LessTifa/Motifa. Zawiera trochê widgetów i
+funkcji ¿eby nieco uprzyjemniæ programowanie z u¿yciem LessTifa czy
+Motifa.
 
 %package devel
 Summary:	Xlt header files and development documentation
