@@ -30,6 +30,7 @@ Summary:	Xlt header files and development documentation
 Summary(pl):	Pliki nag³ówkowe i dokumentacja Xlt
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	motif-devel >= 1.2
 
 %description devel
 Xlt header files and development documentation.
