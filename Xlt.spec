@@ -3,7 +3,7 @@ Summary(pl):	Biblioteka rozszerzeñ do LessTifa
 Name:		Xlt
 Version:	9.0.9
 Release:	1
-License:	LGPL
+License:	GPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
@@ -35,7 +35,6 @@ Biblioteka rozszerzeñ do LessTifa. Zawiera trochê widgetów i funkcji
 %package devel
 Summary:	Xlt header files and development documentation
 Summary(pl):	Pliki nag³ówkowe i dokumentacja Xlt
-License:	LGPL
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(es):	X11/Desarrollo/Bibliotecas
@@ -55,7 +54,6 @@ Pliki nag³ówkowe i dokumentacja programisty do Xlt.
 %package static
 Summary:	Xlt static library
 Summary(pl):	Biblioteka statyczna Xlt
-License:	LGPL
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(es):	X11/Desarrollo/Bibliotecas
@@ -87,6 +85,8 @@ automake -a -c
 	--disable-build-20 \
 	--disable-build-21 \
 	--enable-build-12
+
+%{__make} X_EXTRA_LIBS="-lXm"
 
 %install
 rm -rf $RPM_BUILD_ROOT
