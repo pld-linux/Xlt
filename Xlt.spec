@@ -1,13 +1,12 @@
 Summary:	The LessTif/Motif extension library
 Summary(pl):	Biblioteka rozszerzeñ do LessTifa/Motifa
 Name:		Xlt
-Version:	9.2.9
-Release:	2
+Version:	11.1.11
+Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/xlt/%{name}-%{version}.tar.gz
-# Source0-md5:	5159ced8318597b9a303c3453bbe1658
-Patch0:		%{name}-am18.patch
+# Source0-md5:	37a109c0bf2e0780bf79184be8273c92
 URL:		http://xlt.sf.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -29,7 +28,7 @@ Motifa.
 Summary:	Xlt header files and development documentation
 Summary(pl):	Pliki nag³ówkowe i dokumentacja Xlt
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	motif-devel >= 1.2
 
 %description devel
@@ -42,7 +41,7 @@ Pliki nag³ówkowe i dokumentacja programisty do Xlt.
 Summary:	Xlt static library
 Summary(pl):	Biblioteka statyczna Xlt
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Xlt static library.
@@ -52,19 +51,19 @@ Biblioteka statyczna Xlt.
 
 %prep
 %setup -q
-%patch0 -p1
+
+touch MaintainerMode.am
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I .
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
-	--enable-shared \
 	--enable-static
 
-%{__make} \
-	X_EXTRA_LIBS="-lXm"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -73,9 +72,6 @@ install -d $RPM_BUILD_ROOT%{_aclocaldir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	mandir=%{_mandir}
-
-# workaround - configure decides not to install *.m4 if aclocaldir is not writable
-install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
