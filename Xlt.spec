@@ -10,9 +10,9 @@ License:	GPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.lesstif.org/pub/hungry/lesstif/srcdist/%{name}-%{version}.tar.gz
 # Source0-md5:	4cc27c1137cf2539c97a071ec72cb16d
-BuildRequires:	lesstif-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	lesstif-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
