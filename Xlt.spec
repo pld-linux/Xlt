@@ -1,3 +1,6 @@
+
+%define srcname	LessTifExtensions
+
 Summary:	The LessTif extension library
 Summary(pl):	Biblioteka rozszerzeñ do LessTifa
 Name:		Xlt
@@ -17,7 +20,6 @@ BuildRequires:	lesstif-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	lynx
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -71,7 +73,7 @@ Xlt static library.
 Biblioteka statyczna Xlt.
 
 %prep
-%setup -q -n LessTifExtensions-%{version}
+%setup -q -n %{srcname}-%{version}
 
 %build
 libtoolize -c -f
@@ -81,29 +83,30 @@ automake -a -c
 %configure \
 	--enable-static \
 	--enable-shared \
-	--disable-build-12 \
+	--enable-build-12 \
+	--enable-default-12 \
 	--disable-build-20 \
-	--disable-build-21 \
-	--enable-build-12
+	--disable-default-20
 
 %{__make} X_EXTRA_LIBS="-lXm"
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_aclocaldir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_aclocaldir}
+# workaround - configure decides not to install *.m4 if aclocaldir is not writable
 install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
 gzip -9nf AUTHORS ChangeLog README
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
