@@ -57,8 +57,8 @@ Biblioteka statyczna Xlt.
 %build
 libtoolize -c -f
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-static \
 	--enable-shared \
