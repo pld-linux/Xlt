@@ -5,7 +5,7 @@ Summary:	The LessTif extension library
 Summary(pl):	Biblioteka rozszerzeЯ do LessTifa
 Name:		Xlt
 Version:	9.0.9
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -64,7 +64,7 @@ Group(pl):	X11/Programowanie/Biblioteki
 Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
 Group(ru):	X11/Разработка/Библиотеки
 Group(uk):	X11/Розробка/Б╕бл╕отеки
-Requires:	%{name} = %{version}
+Requires:	%{name}-devel = %{version}
 
 %description static
 Xlt static library.
