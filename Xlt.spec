@@ -8,13 +8,6 @@ Version:	9.0.9
 Release:	2
 License:	GPL
 Group:		X11/Libraries
-Group(de):	X11/Libraries
-Group(es):	X11/Bibliotecas
-Group(fr):	X11/Librairies
-Group(pl):	X11/Biblioteki
-Group(pt_BR):	X11/Bibliotecas
-Group(ru):	X11/Библиотеки
-Group(uk):	X11/Б╕бл╕отеки
 Source0:	ftp://ftp.lesstif.org/pub/hungry/lesstif/srcdist/%{name}-%{version}.tar.gz
 BuildRequires:	lesstif-devel
 BuildRequires:	autoconf
@@ -38,13 +31,6 @@ Biblioteka rozszerzeЯ do LessTifa. Zawiera trochЙ widgetСw i funkcji
 Summary:	Xlt header files and development documentation
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja Xlt
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/Разработка/Библиотеки
-Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -57,13 +43,6 @@ Pliki nagЁСwkowe i dokumentacja programisty do Xlt.
 Summary:	Xlt static library
 Summary(pl):	Biblioteka statyczna Xlt
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/Разработка/Библиотеки
-Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
