@@ -96,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/libXlt.so
-%attr(755,root,root) %{_libdir}/libXlt.la
+%{_libdir}/libXlt.la
 %{_includedir}/Xlt
 %{_aclocaldir}/ac_find_xlt.m4
 %{_aclocaldir}/ac_find_xpm.m4
