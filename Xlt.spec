@@ -1,23 +1,19 @@
-
-%define srcname	LessTifExtensions
-
 Summary:	The LessTif extension library
 Summary(pl):	Biblioteka rozszerzeñ do LessTifa
 Name:		Xlt
-Version:	9.0.9
-Release:	2
+Version:	9.2.9
+Release:	1
 License:	GPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.lesstif.org/pub/hungry/lesstif/srcdist/%{name}-%{version}.tar.gz
-# Source0-md5:	4cc27c1137cf2539c97a071ec72cb16d
+Source0:	http://dl.sourceforge.net/xlt/%{name}-%{version}.tar.gz
+# Source0-md5:	5159ced8318597b9a303c3453bbe1658
+Patch0:		%{name}-am18.patch
+URL:		http://xlt.sf.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	lesstif-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 The LessTif extension library. This consists of several widgets and
@@ -53,30 +49,28 @@ Xlt static library.
 Biblioteka statyczna Xlt.
 
 %prep
-%setup -q -n %{srcname}-%{version}
+%setup -q
+%patch0 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-static \
 	--enable-shared \
-	--enable-build-12 \
-	--enable-default-12 \
-	--disable-build-20 \
-	--disable-default-20
+	--enable-static
 
-%{__make} X_EXTRA_LIBS="-lXm"
+%{__make} \
+	X_EXTRA_LIBS="-lXm"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_aclocaldir}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	mandir=%{_mandir}
 
 # workaround - configure decides not to install *.m4 if aclocaldir is not writable
 install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
@@ -94,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc doc/*.{html,gif}
 %attr(755,root,root) %{_libdir}/libXlt.so
 %{_libdir}/libXlt.la
 %{_includedir}/Xlt
