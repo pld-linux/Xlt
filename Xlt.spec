@@ -81,8 +81,6 @@ install -d $RPM_BUILD_ROOT%{_aclocaldir}
 # workaround - configure decides not to install *.m4 if aclocaldir is not writable
 install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
-gzip -9nf AUTHORS ChangeLog README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -91,11 +89,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/libXlt.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/libXlt.so
 %{_libdir}/libXlt.la
 %{_includedir}/Xlt
