@@ -55,8 +55,9 @@ Biblioteka statyczna Xlt.
 %setup -q -n %{srcname}-%{version}
 
 %build
-libtoolize -c -f
-aclocal
+rm -f missing
+%{__libtoolize}
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
@@ -93,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc {AUTHORS,ChangeLog,README}.gz
+%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/libXlt.so
 %attr(755,root,root) %{_libdir}/libXlt.la
 %{_includedir}/Xlt
