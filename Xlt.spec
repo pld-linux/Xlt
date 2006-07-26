@@ -7,11 +7,11 @@ License:	GPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/xlt/%{name}-%{version}.tar.gz
 # Source0-md5:	46b6259c7637d6e9b87520eb91b6ea51
-URL:		http://xlt.sf.net/
+URL:		http://xlt.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	motif-devel >= 1.2
 BuildRequires:	libtool
+BuildRequires:	motif-devel >= 1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -96,4 +96,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
-%attr(644,root,root) %{_libdir}/libXlt.a
+%{_libdir}/libXlt.a
