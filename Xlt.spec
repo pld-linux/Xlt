@@ -1,5 +1,5 @@
 Summary:	The LessTif/Motif extension library
-Summary(pl):	Biblioteka rozszerzeÒ do LessTifa/Motifa
+Summary(pl.UTF-8):   Biblioteka rozszerze≈Ñ do LessTifa/Motifa
 Name:		Xlt
 Version:	13.0.13
 Release:	1
@@ -19,14 +19,14 @@ The LessTif/Motif extension library. This consists of several widgets
 and convience functions to make LessTif, or if you must Motif,
 programming more enjoyable.
 
-%description -l pl
-Biblioteka rozszerzeÒ do LessTifa/Motifa. Zawiera trochÍ widgetÛw i
-funkcji øeby nieco uprzyjemniÊ programowanie z uøyciem LessTifa czy
+%description -l pl.UTF-8
+Biblioteka rozszerze≈Ñ do LessTifa/Motifa. Zawiera trochƒô widget√≥w i
+funkcji ≈ºeby nieco uprzyjemniƒá programowanie z u≈ºyciem LessTifa czy
 Motifa.
 
 %package devel
 Summary:	Xlt header files and development documentation
-Summary(pl):	Pliki nag≥Ûwkowe i dokumentacja Xlt
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe i dokumentacja Xlt
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	motif-devel >= 1.2
@@ -34,19 +34,19 @@ Requires:	motif-devel >= 1.2
 %description devel
 Xlt header files and development documentation.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe i dokumentacja programisty do Xlt.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe i dokumentacja programisty do Xlt.
 
 %package static
 Summary:	Xlt static library
-Summary(pl):	Biblioteka statyczna Xlt
+Summary(pl.UTF-8):   Biblioteka statyczna Xlt
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Xlt static library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka statyczna Xlt.
 
 %prep
