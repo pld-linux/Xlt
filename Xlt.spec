@@ -1,5 +1,5 @@
 Summary:	The LessTif/Motif extension library
-Summary(pl.UTF-8):   Biblioteka rozszerzeń do LessTifa/Motifa
+Summary(pl.UTF-8):	Biblioteka rozszerzeń do LessTifa/Motifa
 Name:		Xlt
 Version:	13.0.13
 Release:	1
@@ -26,7 +26,7 @@ Motifa.
 
 %package devel
 Summary:	Xlt header files and development documentation
-Summary(pl.UTF-8):   Pliki nagłówkowe i dokumentacja Xlt
+Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja Xlt
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	motif-devel >= 1.2
@@ -39,7 +39,7 @@ Pliki nagłówkowe i dokumentacja programisty do Xlt.
 
 %package static
 Summary:	Xlt static library
-Summary(pl.UTF-8):   Biblioteka statyczna Xlt
+Summary(pl.UTF-8):	Biblioteka statyczna Xlt
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
