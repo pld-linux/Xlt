@@ -1,0 +1,11 @@
+--- Xlt-13.0.13/lib/EntrySB.c.orig	2001-08-16 11:18:04.000000000 +0200
++++ Xlt-13.0.13/lib/EntrySB.c	2018-05-12 23:04:01.881363705 +0200
+@@ -303,7 +303,7 @@
+   if (!sscanf(((XltEntrySBWidget)self)->xltEntrySB.maxval,"%f",&((XltEntrySBWidget)self)->xltEntrySB.internal_max))
+     return;
+ 
+-  sprintf(((XltEntrySBWidget)self)->xltEntrySB.value_buf,((XltEntrySBWidget)self)->xltEntrySB.value);
++  strcpy(((XltEntrySBWidget)self)->xltEntrySB.value_buf,((XltEntrySBWidget)self)->xltEntrySB.value);
+   rowcol = XtVaCreateManagedWidget
+     ("box", xmRowColumnWidgetClass, self,
+      XmNorientation, XmHORIZONTAL,
