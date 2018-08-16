@@ -2,7 +2,7 @@ Summary:	The LessTif/Motif extension library
 Summary(pl.UTF-8):	Biblioteka rozszerzeń do LessTifa/Motifa
 Name:		Xlt
 Version:	13.0.13
-Release:	2
+Release:	3
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/xlt/%{name}-%{version}.tar.gz
