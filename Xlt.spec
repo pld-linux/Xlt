@@ -5,7 +5,7 @@ Version:	13.0.13
 Release:	3
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://dl.sourceforge.net/xlt/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/xlt/%{name}-%{version}.tar.gz
 # Source0-md5:	46b6259c7637d6e9b87520eb91b6ea51
 Patch0:		%{name}-format.patch
 URL:		http://xlt.sourceforge.net/
@@ -52,7 +52,7 @@ Biblioteka statyczna Xlt.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 touch MaintainerMode.am
 
@@ -89,13 +89,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/libXlt.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libXlt.so.0
+%{_libdir}/libXlt.so.*.*.*
+%ghost %{_libdir}/libXlt.so.0
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/*.{html,gif}
-%attr(755,root,root) %{_libdir}/libXlt.so
+%{_libdir}/libXlt.so
 %{_libdir}/libXlt.la
 %{_includedir}/Xlt
 %{_aclocaldir}/ac_find_xlt.m4
