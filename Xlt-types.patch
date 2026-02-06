@@ -1,0 +1,58 @@
+--- Xlt-13.0.13/lib/BubbleButton.c.orig	2004-07-03 16:21:09.000000000 +0200
++++ Xlt-13.0.13/lib/BubbleButton.c	2026-02-06 20:23:41.639849396 +0100
+@@ -46,6 +46,8 @@
+ #include <dmalloc.h>
+ #endif
+ 
++extern XmString _XmStringCreateExternal(XmFontList, _XmString);
++
+ static const char rcsid[] = "$Id: BubbleButton.c,v 1.17 2004/07/03 14:21:09 rwscott Exp $";
+ 
+ /*
+--- Xlt-13.0.13/lib/EntrySB.c.orig	2026-02-06 19:48:16.361734752 +0100
++++ Xlt-13.0.13/lib/EntrySB.c	2026-02-06 21:50:40.098006514 +0100
+@@ -287,9 +287,9 @@ static void initialize(request,self,args
+   XmFontList font_list;
+   XFontStruct *font, **FontList;
+   XtPointer FontPtr;
++  XmFontContext FontContext;
+ #if (XmREVISION <= 1)
+   XmStringCharSet CharSet;
+-  XmFontContext FontContext;
+ #else
+   XmFontType FontType;
+ #endif
+@@ -331,13 +331,12 @@ static void initialize(request,self,args
+     XtVaGetValues(((XltEntrySBWidget)self)->xltEntrySB.label_widget,
+ 		  XmNfontList, &font_list,
+ 		  NULL);
+-#if (XmREVISION <= 1)
+     XmFontListInitFontContext(&FontContext, font_list);
++#if (XmREVISION <= 1)
+     XmFontListGetNextFont(FontContext, &CharSet, &font);
+     XtFree(CharSet);
+-    XmFontListFreeFontContext(FontContext);
+ #else
+-    FontPtr = XmFontListEntryGetFont(font_list, &FontType);
++    FontPtr = XmFontListEntryGetFont(XmFontListNextEntry(FontContext), &FontType);
+     if ( FontType == XmFONT_IS_FONT )
+       font = (XFontStruct *) FontPtr;
+     else {
+@@ -346,6 +345,7 @@ static void initialize(request,self,args
+       font = FontList[0];
+     }
+ #endif
++    XmFontListFreeFontContext(FontContext);
+       /* get label width and height */
+       XTextExtents(font, ((XltEntrySBWidget)self)->xltEntrySB.label, strlen(((XltEntrySBWidget)self)->xltEntrySB.label), &direction,
+ 		   &font_ascent, &font_descent, &overall);
+--- Xlt-13.0.13/lib/SciPlot.c.orig	2001-08-27 16:30:42.000000000 +0200
++++ Xlt-13.0.13/lib/SciPlot.c	2026-02-06 21:51:15.768198922 +0100
+@@ -32,6 +32,7 @@
+ #include "../config.h"
+ 
+ #include <stdio.h>
++#include <stdlib.h>
+ #include <string.h>
+ #include <math.h>
+ 

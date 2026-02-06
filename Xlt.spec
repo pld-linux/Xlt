@@ -2,13 +2,14 @@ Summary:	The LessTif/Motif extension library
 Summary(pl.UTF-8):	Biblioteka rozszerzeń do LessTifa/Motifa
 Name:		Xlt
 Version:	13.0.13
-Release:	3
+Release:	4
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://downloads.sourceforge.net/xlt/%{name}-%{version}.tar.gz
+Source0:	https://downloads.sourceforge.net/xlt/%{name}-%{version}.tar.gz
 # Source0-md5:	46b6259c7637d6e9b87520eb91b6ea51
 Patch0:		%{name}-format.patch
-URL:		http://xlt.sourceforge.net/
+Patch1:		%{name}-types.patch
+URL:		https://xlt.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -53,6 +54,7 @@ Biblioteka statyczna Xlt.
 %prep
 %setup -q
 %patch -P0 -p1
+%patch -P1 -p1
 
 touch MaintainerMode.am
 
