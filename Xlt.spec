@@ -13,7 +13,7 @@ URL:		https://xlt.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	motif-devel >= 1.2
+BuildRequires:	motif-devel >= 2.3.8-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,7 +31,7 @@ Summary:	Xlt header files and development documentation
 Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja Xlt
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	motif-devel >= 1.2
+Requires:	motif-devel >= 2.3.8-3
 
 %description devel
 Xlt header files and development documentation.

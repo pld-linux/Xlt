@@ -56,3 +56,14 @@
  #include <string.h>
  #include <math.h>
  
+--- Xlt-13.0.13/tests/SciPlot/example.c.orig	2001-04-28 18:24:29.000000000 +0200
++++ Xlt-13.0.13/tests/SciPlot/example.c	2026-02-07 08:08:41.908268131 +0100
+@@ -80,7 +80,7 @@ int main(int argc, char **argv)
+    XtError("can't register names\n");
+ 
+     if (MrmRegisterClass(MrmwcUnknown, "SciPlot" , "SciPlotCreate",
+-                            (Widget(*)())SciPlotCreate,
++                            (Widget(*)(Widget, String, ArgList, Cardinal))SciPlotCreate,
+                             (WidgetClass)&sciplotClassRec) != MrmSUCCESS)
+ 
+        XtError("Can't register Sciplot class\n");
